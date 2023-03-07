@@ -1,0 +1,9 @@
+*.code-workspace
+*.gtkw
+*.vcd
+
+test_out_images/
+
+build/
+
+liteXBuild/
