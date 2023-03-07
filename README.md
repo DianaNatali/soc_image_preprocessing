@@ -2,3 +2,5 @@
 
 
 <img width="53%" src="/docs/img/SoC.png" class="center">
+
+<img width="53%" src="/docs/img/sobel_diagram.png" class="center">
