@@ -4,6 +4,6 @@ Diagrama de bloques de todo el SoC ImgPrep.
 
 <img width="53%" src="/docs/img/SoC.png" class="center">
 
-Implementación del algortimo de detección de bordes.
+Implementación del algoritmo de detección de bordes.
 
-<img width="53%" src="/docs/img/sobel_diagram.png" class="center">
+<img width="55%" src="/docs/img/sobel_diagram.png" class="center">
