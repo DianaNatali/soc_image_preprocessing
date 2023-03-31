@@ -7,7 +7,7 @@
 `include "hardware/sobel/buffer_reader.v"
 `include "hardware/sobel/buffer_writer.v"
 
-module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="hardware/sobel/test_bench/monarch_320x240.txt")();
+module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="../test_bench/monarch_320x240.txt")();
     reg  sobel_clk;
     reg  reset;
     reg threshold_up;
@@ -38,7 +38,7 @@ module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="hardware/s
     initial begin
         input_px_gray = 15'd0;
         $readmemh(INFILE, image_memory, 0, sizeOfLengthReal-1);
-        output_image = $fopen("hardware/sobel/test_bench/output_image_sobel.txt","w");
+        output_image = $fopen("../test_bench/output_image_sobel.txt","w");
         sobel_clk = 0;
         ack_read = 1;
         ack_write = 1;
