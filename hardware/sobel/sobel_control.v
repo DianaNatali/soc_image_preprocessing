@@ -30,7 +30,7 @@ module sobel_control #(parameter depth = 76800, parameter addrBits = $clog2(dept
     localparam REQUESTING = 1;
     localparam PREPROCESSING = 2;
 
-    localparam THRESHOLD_VAL = 'd22500;
+    localparam THRESHOLD_VAL = 'd60;
 
     reg reader_enable;
     reg writer_enable;
@@ -179,7 +179,7 @@ module sobel_control #(parameter depth = 76800, parameter addrBits = $clog2(dept
                     end else begin 
                         counter_sobel <= 0;
                         i_sobel <= (i_sobel >= 2 ? (i_sobel - 2): i_sobel);
-                        out_sobel <= (out_sobel_core < threshold ? 15'd0: 15'd32767);
+                        out_sobel <= (out_sobel_core < 150 ? 15'd0: 15'd32767);
                         write_sobel_addr <= target_sobel_addr;      
                     end
                 end else begin
