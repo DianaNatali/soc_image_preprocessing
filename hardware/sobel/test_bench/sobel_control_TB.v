@@ -2,10 +2,10 @@
 // TESTBENCH FOR OVDataCapture
 // ============================================================================
 `timescale 1ns / 1ns
-`include "hardware/sobel/sobel_control.v"
-`include "hardware/sobel/sobel_core.v"
-`include "hardware/sobel/buffer_reader.v"
-`include "hardware/sobel/buffer_writer.v"
+`include "../sobel/sobel_control.v"
+`include "../sobel/sobel_core.v"
+`include "../sobel/buffer_reader.v"
+`include "../sobel/buffer_writer.v"
 
 module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="../test_bench/monarch_320x240.txt")();
     reg  sobel_clk;
