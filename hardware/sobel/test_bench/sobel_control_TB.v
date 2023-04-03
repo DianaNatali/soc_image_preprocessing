@@ -8,7 +8,7 @@
 `include "hardware/sobel/buffer_reader.v"
 `include "hardware/sobel/buffer_writer.v"
 
-module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="hardware/test_bench/monarch_320x240.txt")();
+module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="hardware/sobel/test_bench/monarch_320x240.txt")();
     reg  sobel_clk;
     reg  reset;
     reg threshold_up;
