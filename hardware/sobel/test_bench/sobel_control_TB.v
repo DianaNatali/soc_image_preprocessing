@@ -35,10 +35,6 @@ module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="hardware/s
         .ack_write(ack_write),
         .output_px_sobel(out_px_sobel)
     );
-
-    assign uut.VGND = 1'b0;
-    assign uut.VPWR = 1'b1;
-
     
     initial begin
         input_px_gray = 15'd0;
