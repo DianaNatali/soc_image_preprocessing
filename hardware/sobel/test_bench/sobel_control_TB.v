@@ -2,12 +2,17 @@
 // TESTBENCH FOR OVDataCapture
 // ============================================================================
 `timescale 1ns / 1ns
-`include "hardware/sobel/sobel_control.v"
-`include "hardware/sobel/sobel_core.v"
-`include "hardware/sobel/buffer_reader.v"
-`include "hardware/sobel/buffer_writer.v"
+`include "../sobel/sobel_control.v"
+`include "../sobel/sobel_core.v"
+`include "../sobel/buffer_reader.v"
+`include "../sobel/buffer_writer.v"
 
-module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="hardware/sobel/test_bench/monarch_320x240.txt")();
+// `include "hardware/sobel/sobel_control.v"
+// `include "hardware/sobel/sobel_core.v"
+// `include "hardware/sobel/buffer_reader.v"
+// `include "hardware/sobel/buffer_writer.v"
+
+module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="../test_bench/monarch_320x240.txt")();
     reg  sobel_clk;
     reg  reset;
     reg threshold_up;
@@ -34,11 +39,15 @@ module sobel_control_TB #(parameter sizeOfLengthReal = 76800, INFILE="hardware/s
         .ack_write(ack_write),
         .output_px_sobel(out_px_sobel)
     );
+
+    assign uut.VGND = 1'b0;
+    assign uut.VPWR = 1'b1;
+
     
     initial begin
         input_px_gray = 15'd0;
         $readmemh(INFILE, image_memory, 0, sizeOfLengthReal-1);
-        output_image = $fopen("hardware/sobel/test_bench/output_image_sobel.txt","w");
+        output_image = $fopen("../test_bench/output_image_sobel.txt","w");
         sobel_clk = 0;
         ack_read = 1;
         ack_write = 1;

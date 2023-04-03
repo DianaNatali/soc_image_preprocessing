@@ -53,23 +53,6 @@ module sobel_control #(parameter depth = 76800, parameter addrBits = $clog2(dept
     reg prep_completed;
     reg [addrBits-1:0] write_sobel_addr;
 
-    initial begin
-        manager_state = MANAGER_IDLE;
-        reader_enable = 1'b0;
-        writer_enable = 1'b0;
-        enable_mem = 1'b0;
-        prep_allowed = 1'b0;
-        counter_sobel = 4'b0000;
-        count_addr = 17'b0;
-        i_sobel = 8'b00000000;
-        j_sobel = 9'b000000000;
-        target_sobel_addr = 17'b0;
-        out_sobel = 15'b0;
-        threshold = THRESHOLD_VAL;
-        prep_completed = 1'b0;
-        write_sobel_addr = 17'b0;
-    end
-
     buffer_reader reader(
         .clk(sobel_clk),
         .reset(reset),
@@ -179,7 +162,7 @@ module sobel_control #(parameter depth = 76800, parameter addrBits = $clog2(dept
                     end else begin 
                         counter_sobel <= 0;
                         i_sobel <= (i_sobel >= 2 ? (i_sobel - 2): i_sobel);
-                        out_sobel <= (out_sobel_core < 150 ? 15'd0: 15'd32767);
+                        out_sobel <= (out_sobel_core < 200 ? 15'd0: 15'd32767);
                         write_sobel_addr <= target_sobel_addr;      
                     end
                 end else begin
